@@ -1,0 +1,36 @@
+{% extends 'base.html'%}
+
+{% block title%} {{super()}} Answer qwuestion  {% endblock %}
+
+
+{% block content %}
+
+<div class="container">
+
+  <div class="my-4">
+    <div class="mb-3">
+      <label for="">Question</label>
+      <div class="card p-4 bg-info">
+        {{question.question_text}}
+      </div>
+    </div>
+  </div>
+
+  <form action="{{url_for('answer',question_id=question['id'])}}" method="POST">
+
+    <div class="mb-3">
+      <label for="exampleFormControlTextarea1" class="form-label">Answer Question</label>
+      <textarea class="form-control" name="answer" id="exampleFormControlTextarea1" rows="3" ></textarea>
+    </div>
+
+    <div class="mb-3">
+      <input type="submit" class="btn btn-primary" value="Submit Answer"> 
+    </div>
+
+  </form>
+
+
+</div>
+
+
+{%endblock%}

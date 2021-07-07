@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block title%} {{super()}} Home {% endblock %}
+
+
+{% block content %}
+
+<div class="container">
+  <h1> Welcome Home </h1>
+  <div class="my-4">
+    <ol class="list-group list-group-numbered">
+      {% for quest in questions %}
+
+      <a href="{{url_for('question', id=[quest.id])}}">
+
+        <li class="list-group-item d-flex justify-content-between align-items-start mb-3">
+          <div class="ms-2 me-auto">
+            <div class="fw-bold">{{ quest.question_text }}</div>
+            Asked by:{{ quest.askers_name }} <br>
+            Answerd by:{{ quest.expert_name }}
+          </div>
+          <span class="badge bg-primary rounded-pill">-</span>
+        </li>
+
+      </a>
+
+      {% endfor %}
+    </ol>
+  </div>
+
+</div>
+
+
+{%endblock%}
+

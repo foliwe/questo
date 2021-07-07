@@ -1,0 +1,33 @@
+{%extends "base.html" %}
+
+{% block title%} {{super()}} Ask Question {% endblock %}
+
+
+{% block content %}
+
+<div class="container">
+  <h1>Ask a Question</h1>
+  <div class="my-4">
+    <form method="POST">
+      <div class="mb-3">
+        <label for="exampleFormControlTextarea1" class="form-label">Question</label>
+        <textarea class="form-control" name="question" id="exampleFormControlTextarea1" rows="3"></textarea>
+      </div>
+      <div class="mb-3">
+        <label  class="form-label">Select Expert</label>
+        <select class="form-select" name = "expert" aria-label="Default select example">
+          {% for expert in experts %}
+           <option value="{{expert.id}}">{{expert.username}}</option>
+          {% endfor %}
+        </select>
+      </div>
+      <div class="mb-3">
+        <input type="submit" class="btn btn-primary" value="Submit Question"> 
+      </div>
+    </form>
+  </div>
+
+</div>
+
+
+{%endblock%}

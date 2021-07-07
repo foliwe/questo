@@ -1,0 +1,22 @@
+{%extends "base.html" %}
+
+{% block title%} {{super()}}  Question {% endblock %}
+
+
+{% block content %}
+
+<div class="container">
+  <h1>Question</h1>
+<div class="card">
+
+  {{question.question_text}} <br>
+
+  Asked by: {{question.askers_name}} <br>
+  Answerd by: {{question.expert_name}}
+  
+</div>
+
+</div>
+
+
+{%endblock%}
